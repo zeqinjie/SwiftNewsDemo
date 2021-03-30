@@ -302,4 +302,104 @@ print(filterscores)
 
 
 
+/*
+ 
+/// 写法一
+class IOSDevice {
+    struct iPhone {}
+    struct iPad {}
+    struct Mac {}
+    
+    func setUp(product: iPhone) {
+        print("iPhone is bought")
+    }
+    
+    func setUp(product: iPad) {
+        print("iPad is bought")
+    }
+    
+    func setUp(product: Mac) {
+        print("Mac is bought")
+    }
+}
 
+/// 写法二
+class Book {
+    struct IOS { }
+    func makeIOS() {
+        func add(item: IOS) {
+            print("Adding IOS…")
+        }
+        add(item: IOS())
+        print("Come and get some book!")
+    }
+}
+
+///// 写法二
+//class Cookies {
+//    struct Butter { }
+//    struct Flour { }
+//    struct Sugar { }
+//    func makeCookies() {
+//        func add(item: Butter) {
+//            print("Adding butter…")
+//        }
+//
+//        func add(item: Flour) {
+//            print("Adding flour…")
+//        }
+//
+//        func add(item: Sugar) {
+//            print("Adding sugar…")
+//        }
+//        add(item: Butter())
+//        add(item: Flour())
+//        add(item: Sugar())
+//        print("Come and get some cookies!")
+//    }
+//}
+
+
+/// 写法一
+func appendString(string: String, otherString: String, moreStrings: String...) -> String {
+    var resurltString = string + " " + otherString
+    resurltString += moreStrings.reduce("", { (x, y) -> String in
+        x + " " + y
+    });
+    return resurltString
+}
+let res = appendString(string: "Hello", otherString: "I", moreStrings: "am", "a", "good", "man")
+
+///// 写法二
+//func insertString(string: String, otherString: String..., moreStrings: String...) -> String {
+//    var resurltString = string + " " + otherString
+//    resurltString += moreStrings.reduce("", { (x, y) -> String in
+//        x + " " + y
+//    });
+//    resurltString += otherString.reduce("", { (x, y) -> String in
+//        x + " " + y
+//    });
+//    return resurltString
+//}
+
+//let res2 = insertString(string: "Hello", otherString: "I", "am", moreStrings: "a", "good", "man")
+
+
+import Foundation
+func OuterFunc(_ a:Int) -> (Int)->Int {
+    var start = 0
+    func InnerFunc(b:Int)->Int
+    {
+        start += a*b
+        print("start = \(start)")
+        return start
+    }
+    return InnerFunc
+}
+
+var funtest = OuterFunc(2)
+
+print(funtest(5))
+print(funtest(5))
+
+ */
